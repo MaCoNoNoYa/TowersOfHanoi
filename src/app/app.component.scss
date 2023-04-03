@@ -1,0 +1,40 @@
+:root{
+    --g1: rgb(98, 0, 234);
+    --g2: rgb(236, 64, 122);
+    --g3: rgb(253, 216, 53);
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 0.05vmin solid black;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.block{
+    width: 6vmin;
+    height: 65vmin;
+    border: 0.5vmin solid black;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
+    margin: 50px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(
+        180deg,
+        transparent 0% 0%,
+        rgb(98, 0, 234) 25%,
+        rgb(253, 216, 53) 50%,
+        rgb(255, 0, 0) 75%,
+    );
+}
