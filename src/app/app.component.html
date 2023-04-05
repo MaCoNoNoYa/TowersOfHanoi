@@ -1,6 +1,57 @@
 <div id="container" #container>
-  <button onclick="defaultSim()">start simulation</button>
-  <div class="block" id="1" #t1>1</div>
-  <div class="block" id="2" #t2>2</div>
-  <div class="block" id="3" #t3>3</div>
+  <div id="controls">
+    <input #numOfOperation />
+    <button (click)="startRecursion(+numOfOperation.value, 'A', 'B', 'C')">
+      start simulation
+    </button>
+    <!-- <div [ngStyle]="{ 'width': values + 'vmin', 'border': '1px solid black'}">Some content here</div> -->
+  </div>
+  <div class="block" id="1" #t1>
+    <div *ngFor="let coin of coins">
+      <ng-container *ngIf="coin.block === 1">
+        <div
+          [ngStyle]="{
+            width: coin.width + 'vmin',
+            height: coin.height + 'vmin',
+            background: 'blue'
+          }"
+        ></div>
+      </ng-container>
+      <ng-template #elseBlock>
+        <div>Block is not equal to 1</div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="block" id="2" #t2>
+    <div *ngFor="let coin of coins">
+      <ng-container *ngIf="coin.block === 2">
+        <div
+          [ngStyle]="{
+            width: coin.width + 'vmin',
+            height: coin.height + 'vmin',
+            border: '1px solid black'
+          }"
+        ></div>
+      </ng-container>
+      <ng-template #elseBlock>
+        <div>Block is not equal to 1</div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="block" id="3" #t3>
+    <div *ngFor="let coin of coins">
+      <ng-container *ngIf="coin.block === 3">
+        <div
+          [ngStyle]="{
+            width: coin.width + 'vmin',
+            height: coin.height + 'vmin',
+            border: '1px solid black'
+          }"
+        ></div>
+      </ng-container>
+      <ng-template #elseBlock>
+        <div>Block is not equal to 1</div>
+      </ng-template>
+    </div>
+  </div>
 </div>
