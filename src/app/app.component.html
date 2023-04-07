@@ -1,57 +1,47 @@
 <div id="container" #container>
   <div id="controls">
-    <input #numOfOperation />
-    <button (click)="startRecursion(+numOfOperation.value, 'A', 'B', 'C')">
+    <input value="1" pattern="\d*" (keypress)="isNumber($event)" #numOfOperation/>
+    <button (click)="startRecursion(+numOfOperation.value, 1, 2, 3)">
       start simulation
     </button>
-    <!-- <div [ngStyle]="{ 'width': values + 'vmin', 'border': '1px solid black'}">Some content here</div> -->
   </div>
   <div class="block" id="1" #t1>
     <div *ngFor="let coin of coins">
       <ng-container *ngIf="coin.block === 1">
         <div
+          class="coin"
           [ngStyle]="{
             width: coin.width + 'vmin',
-            height: coin.height + 'vmin',
-            background: 'blue'
+            height: coin.height + 'vmin'
           }"
         ></div>
       </ng-container>
-      <ng-template #elseBlock>
-        <div>Block is not equal to 1</div>
-      </ng-template>
     </div>
   </div>
   <div class="block" id="2" #t2>
     <div *ngFor="let coin of coins">
       <ng-container *ngIf="coin.block === 2">
         <div
+          class="coin"
           [ngStyle]="{
             width: coin.width + 'vmin',
-            height: coin.height + 'vmin',
-            border: '1px solid black'
+            height: coin.height + 'vmin'
           }"
         ></div>
       </ng-container>
-      <ng-template #elseBlock>
-        <div>Block is not equal to 1</div>
-      </ng-template>
     </div>
   </div>
   <div class="block" id="3" #t3>
     <div *ngFor="let coin of coins">
       <ng-container *ngIf="coin.block === 3">
         <div
+          class="coin"
           [ngStyle]="{
             width: coin.width + 'vmin',
-            height: coin.height + 'vmin',
-            border: '1px solid black'
+            height: coin.height + 'vmin'
           }"
         ></div>
       </ng-container>
-      <ng-template #elseBlock>
-        <div>Block is not equal to 1</div>
-      </ng-template>
     </div>
   </div>
 </div>

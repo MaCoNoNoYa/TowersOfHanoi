@@ -51,3 +51,12 @@ body {
   flex-direction: column-reverse;
   background: linear-gradient(rgb(174, 180, 255) 25%, rgb(52, 49, 85) 100%);
 }
+
+.coin {
+  background: radial-gradient(
+    farthest-corner at 50% 50%,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgb(134, 134, 134) 100%
+  );
+  border-radius: 1vmin;
+}
