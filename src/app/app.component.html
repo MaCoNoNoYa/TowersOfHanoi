@@ -1,9 +1,29 @@
 <div id="container" #container>
   <div id="controls">
-    <input value="1" pattern="\d*" (keypress)="isNumber($event)" #numOfOperation/>
-    <button (click)="startRecursion(+numOfOperation.value, 1, 2, 3)">
-      start simulation
-    </button>
+    <div class="form-group">
+      <label for="coins">Number of Coins:</label>
+      <input
+        placeholder="Number of coins"
+        pattern="\d*"
+        (keypress)="isNumber($event)"
+        #numOfOperation
+      />
+    </div>
+    <div class="form-group">
+      <label for="delay">Delay:</label>
+      <input
+        [(ngModel)]="delay"
+        pattern="\d*"
+        (keypress)="isNumber($event)"
+        type="text"
+        placeholder="Delay(in ms)"
+      />
+    </div>
+    <div class="button-group">
+      <button (click)="startRecursion(+numOfOperation.value, 1, 2, 3)">
+        start simulation
+      </button>
+    </div>
   </div>
   <div class="block" id="1" #t1>
     <div *ngFor="let coin of coins">

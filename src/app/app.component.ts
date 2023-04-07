@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Coin } from './coin';
 let counter: number = 0;
 let origNum: number = 0;
-let delay: number = 0;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +10,7 @@ let delay: number = 0;
 export class AppComponent {
   coins: Coin[] = [];
   title = 'towers-of-hanoi';
-
+  delay: number = 1000;
   startRecursion(n: number, s_pole: number, d_pole: number, i_pole: number) {
     origNum = n;
     this.coins = [];
@@ -38,17 +37,17 @@ export class AppComponent {
   }
   async defaultSim(n: number, s_pole: number, d_pole: number, i_pole: number) {
     if (n == 1) {
-      await new Promise((f) => setTimeout(f, delay));
+      await new Promise((f) => setTimeout(f, this.delay));
 
       //Unsauber, da Funktion nicht im Export sein sollte, wurde aus Faulheit ignoriert ¯\_(ツ)_/¯
       this.coins = await switchBlock(n, d_pole, this.coins);
       return;
     }
     await this.defaultSim(n - 1, s_pole, i_pole, d_pole); // wait for the recursive call to complete
-    await new Promise((f) => setTimeout(f, delay));
+    await new Promise((f) => setTimeout(f, this.delay));
     this.coins = await switchBlock(n, d_pole, this.coins); // wait for switchBlock to complete
     // print("Move disc",n,"from pole",s_pole,"to pole",d_pole)
-    await new Promise((f) => setTimeout(f, delay));
+    await new Promise((f) => setTimeout(f, this.delay));
     await this.defaultSim(n - 1, i_pole, d_pole, s_pole); // wait for the recursive call to complete
   }
 }
